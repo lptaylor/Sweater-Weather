@@ -46,10 +46,10 @@ describe 'forcast' do
     @forcast = Forcast.make_forcast_array(@data)
   end
   it 'exists' do
-    expect(@forcast).to be_a(Forcast)
+    expect(@forcast).to be_a(Array)
   end
   it 'is an array of days objects length 5' do
     expect(@forcast.length).to eq(5)
-    expect(@forcast[0].class).to be_a(WeatherDay)
+    expect(@forcast[0]).to be_a(WeatherDay)
   end
 end
