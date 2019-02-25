@@ -14,9 +14,9 @@ describe 'forcast service' do
     lon = '-105.0866504'
     service = ForcastService.new(lat,lon)
     response = service.parse_response
-    
-    expect(response).to have_key[:currently]
-    expect(response).to have_key[:hourly]
-    expect(response).to have_key[:daily]
+
+    expect(response).to have_key(:currently)
+    expect(response).to have_key(:hourly)
+    expect(response).to have_key(:daily)
   end
 end
