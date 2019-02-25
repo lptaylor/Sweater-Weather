@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-describe 'forcast service' do
+describe 'forecast service' do
   it 'exists' do
     lat = 39.9205411
     lon = -105.0866504
-    service = ForcastService.new(lat,lon)
+    service = forecastService.new(lat,lon)
 
-    expect(service).to be_a(ForcastService)
+    expect(service).to be_a(forecastService)
   end
 
   it 'gives back a response', :vcr do
     lat = '39.9205411'
     lon = '-105.0866504'
-    service = ForcastService.new(lat,lon)
+    service = forecastService.new(lat,lon)
     response = service.parse_response
 
     expect(response).to have_key(:currently)
