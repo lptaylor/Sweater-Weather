@@ -14,4 +14,10 @@ class GiphyDaysWeather
     end
     array
   end
+
+  def make_giphy_days
+    fetch_giphy_gifs.map do |data|
+      GiphyDay.new(data)
+    end
+  end
 end
