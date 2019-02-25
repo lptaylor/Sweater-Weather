@@ -1,5 +1,9 @@
 class ImagesSerializer
   include FastJsonapi::ObjectSerializer
   set_id :object_id
-  attributes :url, :time, :summary
+
+  attribute :images do |object|
+    object.make_giphy_days
+  end
+
 end

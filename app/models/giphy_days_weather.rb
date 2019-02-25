@@ -9,7 +9,7 @@ class GiphyDaysWeather
     @five_day_forecast.each do |forecast|
         five_day_with_gif[:url] = GiphyService.new(forecast.icon).get_gif
         five_day_with_gif[:time] = forecast.day
-        five_day_with_gif[:status] = forecast.icon
+        five_day_with_gif[:summary] = forecast.icon
         array << five_day_with_gif
     end
     array
