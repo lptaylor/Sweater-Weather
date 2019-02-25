@@ -1,4 +1,4 @@
-class ForcastService
+class ForecastService
 
   def initialize(lat, lon)
     @lat = lat
