@@ -5,14 +5,14 @@ class GiphyService
   end
 
   def conn
-    Faraday.new(:url => 'http://api.giphy.com/v1') do |c|
+    Faraday.new(:url => 'http://api.giphy.com') do |c|
       c.params[:api_key] = ENV['GIPHY_API_KEY']
       c.adapter  Faraday.default_adapter
     end
   end
 
   def find_weather_gif
-    conn.get("/gifs/search") do |f|
+    conn.get("/v1/gifs/search") do |f|
       f.params[:q] = @weather_summary
     end
   end
