@@ -22,6 +22,6 @@ class GiphyService
   end
 
   def get_gif
-    parse_response[:data][0][:urlr]
+    parse_response[:data][0][:url]
   end
 end
