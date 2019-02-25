@@ -4,12 +4,11 @@ class GiphyDaysWeather
   end
 
   def fetch_giphy_gifs
-    five_day_with_gif = {}
+
     @five_day_forecast.map do |forecast|
-        five_day_with_gif[:url] = GiphyService.new(forecast[:icon]).get_gif
-        five_day_with_gif[:time] = forecast[:day]
-        five_day_with_gif[:status] = forecast[:icon]
+      binding.pry
+        forecast << GiphyService.new(forecast[:icon]).get_gif
     end
-    five_day_with_gif
+
   end
 end
