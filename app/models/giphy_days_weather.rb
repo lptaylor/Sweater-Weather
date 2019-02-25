@@ -13,8 +13,8 @@ class GiphyDaysWeather
     five_day_with_gif = {}
     @five_day_forecast.map do |forecast|
         five_day_with_gif[:url] = GiphyService.new(forecast[:icon]).get_gif
-        five_day_with_gif[:day] = forecast[:day]
-        five_day_with_gif[:icon] = forecast[:icon]
+        five_day_with_gif[:time] = forecast[:day]
+        five_day_with_gif[:status] = forecast[:icon]
     end
     five_day_with_gif
   end
