@@ -9,12 +9,12 @@ class Forecast
   end
 
   def get_lat
-    service = GeolocatorService.new(search_location)
+    service = GeolocatorService.new(@search_location)
     service.lat
   end
 
   def get_lon
-    service = GeolocatorService.new(search_location)
+    service = GeolocatorService.new(@search_location)
     service.lon
   end
 
