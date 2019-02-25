@@ -1,0 +1,3 @@
+class ForcastService
+
+end
