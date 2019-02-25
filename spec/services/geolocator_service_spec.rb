@@ -11,7 +11,7 @@ describe 'geolocator service' do
     location = 'Broomfield, Colorado'
     locator = Geolocator.new(location)
 
-    expect(locator.lat).to eq(39.9288242)
-    expect(locator.lon).to eq(-105.0541269)
+    expect(locator.lat).to eq(39.9205411)
+    expect(locator.lon).to eq(-105.0866504)
   end
 end
