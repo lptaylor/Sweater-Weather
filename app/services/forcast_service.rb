@@ -15,5 +15,4 @@ class ForcastService
   def parse_response
     JSON.parse(get_weather.body, symbolize_names: true)
   end
-
 end
