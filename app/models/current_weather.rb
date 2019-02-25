@@ -7,12 +7,12 @@ class CurrentWeather
               :summary,
               :icon
   def initialize(current_weather_data)
-    @temperature = current_weather_data[:temperature]
-    @feels_like_temp = current_weather_data[:apparentTemperature]
-    @humidity = current_weather_data[:humidity]
-    @uv_index = current_weather_data[:uvIndex]
-    @visibility = current_weather_data[:visibility]
-    @summary = current_weather_data[:summary]
-    @icon = current_weather_data[:icon]
+    @temperature = current_weather_data[:currently][:temperature]
+    @feels_like_temp = current_weather_data[:currently][:apparentTemperature]
+    @humidity = current_weather_data[:currently][:humidity]
+    @uv_index = current_weather_data[:currently][:uvIndex]
+    @visibility = current_weather_data[:currently][:visibility]
+    @summary = current_weather_data[:currently][:summary]
+    @icon = current_weather_data[:currently][:icon]
   end
 end

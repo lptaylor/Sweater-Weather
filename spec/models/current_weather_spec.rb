@@ -9,13 +9,13 @@ describe 'Current Weather' do
     @visibility = 8.2
     @summary = 'sunny'
     @icon = 'partly-cloudy-night'
-    @current_weather_data = {:temperature => @temp,
+    @current_weather_data = {:currently => {:temperature => @temp,
                             :apparentTemperature => @feels_like_temp,
                             :humidity => @humidity,
                             :uvIndex => @uv_index,
                             :visibility => @visibility,
                             :summary => @summary,
-                            :icon => @icon}
+                            :icon => @icon}}
   end
   it 'exists' do
     c_weather = CurrentWeather.new(@current_weather_data)
