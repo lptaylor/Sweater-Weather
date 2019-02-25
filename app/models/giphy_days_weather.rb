@@ -1,12 +1,6 @@
 class GiphyDaysWeather
   def initialize(five_day_forecast)
-    @five_day_forecast = five_day_forecast[:data][:attributes][:days_weather]
-  end
-
-  def assign_gifs
-    @five_day_forecast.map do |data|
-      GiphyDay.new(data, )
-    end
+    @five_day_forecast = five_day_forecast
   end
 
   def fetch_giphy_gifs
