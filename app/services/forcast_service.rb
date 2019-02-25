@@ -5,10 +5,15 @@ class ForcastService
     @lon = lon
   end
 
-  def get_weather
-    Faraday.new(:url => "https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{@lat},#{@lon}") do |f|
-      f.params[:exclude] = 'minutely,alerts,flags'
+  def conn
+    Faraday.new(:url => "https://api.darksky.net/forecast/") do |f|
       f.adapter  Faraday.default_adapter
+    end
+  end
+
+  def get_weather
+    conn.get("#{ENV['DARK_SKY_API_KEY']}/#{@lat},#{@lon}") do |c|
+      c.params[:exclude] = 'minutely,alerts,flags'
     end
   end
 
