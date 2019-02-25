@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'forcast' do
+describe 'days weather' do
   before(:each) do
     @data = {:daily => {data:
                 [{
@@ -43,7 +43,7 @@ describe 'forcast' do
       :temperatureHigh => 53.03,
       :temperatureLow => 53.36,
         }]}}
-    @forcast = Forcast.make_forcast_array(@data)
+    @forcast = DaysWeather.make_forcast_array(@data)
   end
   it 'exists' do
     expect(@forcast).to be_a(Array)
