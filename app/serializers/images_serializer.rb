@@ -1,5 +1,5 @@
 class ImagesSerializer
   include FastJsonapi::ObjectSerializer
   set_id :object_id
-  attributes :url, :time, :status
+  attributes :url, :time, :summary
 end
