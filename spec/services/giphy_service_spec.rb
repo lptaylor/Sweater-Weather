@@ -11,7 +11,7 @@ describe 'giphy service' do
   it 'has response body with keys', :vcr do
 
     response = @service.parse_response
-    binding.pry
+    
     expect(response[:data][0]).to have_key(:id)
     expect(response[:data][0]).to have_key(:url)
     expect(response[:data][0]).to have_key(:slug)
