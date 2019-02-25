@@ -1,12 +1,12 @@
 class GeolocatorService
-  def initalize(location)
+  def initialize(location)
     @location = location
   end
 
   def conn
     Faraday.new(:url => 'https://maps.googleapis.com/maps/api/geocode/json') do |c|
-      c.adapter Faraday.default_adapeter
       c.params[:key] = ENV['GOOGLE_API_KEY']
+      c.adapter  Faraday.default_adapter
     end
   end
 
