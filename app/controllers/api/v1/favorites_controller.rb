@@ -17,6 +17,17 @@ class Api::V1::FavoritesController < ApplicationController
         render json: {status: 401}
       end
   end
+
+  def destroy
+    user = User.find_by(api_key: params['api_key'])
+    if !user.nil?
+      location = user.favorite_locations.find_by(location: params['location'])
+      location.destroy
+      render json: FavoritesSerializer.new(location)
+    else
+      render json: {status: 401}
+    end
+  end
 end
 
 private
