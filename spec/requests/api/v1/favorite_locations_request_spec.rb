@@ -82,7 +82,6 @@ RSpec.describe 'FavoritesController', :type => :request do
     expect(response).to be_successful
     expect(response.status).to eq(200)
     expect(parsed).to have_key(:data)
-    binding.pry
     expect(parsed[:data]).to have_key(:id)
     expect(parsed[:data]).to have_key(:type)
     expect(parsed[:data]).to have_key(:attributes)
