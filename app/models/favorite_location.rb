@@ -1,0 +1,3 @@
+class FavoriteLocation < ApplicationRecord
+
+end
