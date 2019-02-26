@@ -4,8 +4,8 @@ class Forecast
     location = search_location.split(',')
     @search_location = search_location
     @date = Time.now.strftime('%Y-%m-%d')
-    @city = location[0]
-    @state = location[1]
+    @city = location[0].strip
+    @state = location[1].strip
   end
 
   def get_lat
