@@ -30,4 +30,11 @@ describe 'user api' do
     expect(parsed).to have_key('status')
     expect(parsed['status']).to eq(401)
   end
+
+  it 'can add a favorite location' do
+    post "/api/v1/users?email=lance@gmail.com&password=123abc&password_confirmation=123abc"
+    user = User.first
+    post "/api/v1/favorites?location=Denver,CO&api_key=#{user.api_key}"
+    binding.pry
+  end
 end
