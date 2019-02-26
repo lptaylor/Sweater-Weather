@@ -20,4 +20,14 @@ describe 'user api' do
     expect(parsed).to have_key('api_key')
     expect(parsed).to have_key('status')
   end
+
+  it 'returns unauthorized if user does not exist' do
+    post "/api/v1/sessions?email=lance@gmail.com&password=123abc"
+
+    parsed = JSON.parse(response.body)
+
+    expect(response).to be_successful
+    expect(parsed).to have_key('status')
+    expect(parsed['status']).to eq(401)
+  end
 end
