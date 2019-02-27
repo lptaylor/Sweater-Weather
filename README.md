@@ -90,25 +90,32 @@ Tech used was `rspec`, `vcr`, `shoulda-matchers`, and `simplecov` for testing.
 ####Forecast for a location
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/forecast?location=YOUR_LOCATION
 Returns a response containing the current weather, an hourly forecast for 8 hours and a 5 day forecast
+
 ####Background image for a location
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/backgrounds?location=YOUR_LOCATION
 Returns a URL for an image based on the location from the Flikr API
+
 ####Gif for the daily forecast
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/gifs?location=YOUR_LOCATION
 Returns a collection of gifs based on the summary of a 5 day forecast for a location
+
 ####User creation
 POST to https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?email=youremail&password=password&password_confirmaion=password
 This will return an api key for the new user
+
 ####User login
 POST to https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?email=youremail&password=password
 This will return an api key for the user if they exist
+
 ####Favorite location creation
 POST to
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?/api/v1/favorites?location=YOUR_NEW_FAVORITE&api_key=YOUR_API_KEY
 This will associate a location with your user account
+
 ####List all favorite locations for a user
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?/api/v1/favorites?api_key=YOUR_API_KEY
 This lists all your favorite locations with their current weather
+
 ####Delete a favorite location
 DELETE to
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?/api/v1/favorites?location=YOUR_NEW_FAVORITE&api_key=YOUR_API_KEY
