@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
       resources :favorites, only: [:create, :index]
       delete '/favorites', to: 'favorites#destroy'
+      get '/backgrounds', to: 'backgrounds#show'
     end
   end
 end

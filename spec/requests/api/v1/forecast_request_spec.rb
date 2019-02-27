@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'forcast request' do
   it "can return current_weather", :vcr do
-    get 'https://enigmatic-everglades-87289.herokuapp.com/api/v1/forecast?location=denver,colorado'
+    get '/api/v1/forecast?location=denver,colorado'
 
     parsed = JSON.parse(response.body, symbolize_names: true)
 

@@ -2,48 +2,7 @@ require 'rails_helper'
 
 describe 'days weather' do
   before(:each) do
-    @data = {:daily => {data:
-                [{
-      :time => 1551081600,
-      :icon => "rain",
-      :precipProbability => 1,
-      :precipType => "rain",
-      :temperatureHigh => 53.03,
-      :temperatureLow => 53.36,
-                },
-                {
-      :time => 1551081600,
-      :icon => "rain",
-      :precipProbability => 1,
-      :precipType => "rain",
-      :temperatureHigh => 53.03,
-      :temperatureLow => 53.36,
-                },
-                {
-      :time => 1551081600,
-      :icon => "rain",
-      :precipProbability => 1,
-      :precipType => "rain",
-      :temperatureHigh => 53.03,
-      :temperatureLow => 53.36,
-                },
-                {
-      :time => 1551081600,
-      :icon => "rain",
-      :precipProbability => 1,
-      :precipType => "rain",
-      :temperatureHigh => 53.03,
-      :temperatureLow => 53.36,
-                },
-                {
-      :time => 1551081600,
-      :icon => "rain",
-      :precipProbability => 1,
-      :precipType => "rain",
-      :temperatureHigh => 53.03,
-      :temperatureLow => 53.36,
-        }]}}
-    @forecast = DaysWeather.make_forecast_array(@data)
+    @forecast = DaysWeather.make_forecast_array(daily_weather_fixture)
   end
   it 'exists' do
     expect(@forecast).to be_a(Array)
