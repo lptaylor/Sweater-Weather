@@ -8,6 +8,11 @@ describe 'background image request' do
 
     expect(response).to be_successful
     expect(response.status).to eq(200)
-    expect(parsed).to have_key(:id)
+    expect(parsed).to have_key(:data)
+    expect(parsed[:data]).to have_key(:id)
+    expect(parsed[:data]).to have_key(:type)
+    expect(parsed[:data]).to have_key(:attributes)
+    expect(parsed[:data][:attributes]).to have_key(:url)
+    expect(parsed[:data][:attributes]).to have_key(:location)
   end
 end
