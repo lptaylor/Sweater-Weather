@@ -5,7 +5,6 @@ describe 'forcast request' do
     get '/api/v1/forecast?location=denver,colorado'
 
     parsed = JSON.parse(response.body, symbolize_names: true)
-
     expect(response).to be_successful
     expect(response.status).to eq(200)
     expect(parsed).to have_key(:data)
