@@ -87,36 +87,36 @@ Tech used was `rspec`, `vcr`, `shoulda-matchers`, and `simplecov` for testing.
 
 ### For all POST and DELETE you must use an app such as POSTMAN!
 
-####Forecast for a location
+###Forecast for a location
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/forecast?location=YOUR_LOCATION
 Returns a response containing the current weather, an hourly forecast for 8 hours and a 5 day forecast
 
-####Background image for a location
+###Background image for a location
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/backgrounds?location=YOUR_LOCATION
 Returns a URL for an image based on the location from the Flikr API
 
-####Gif for the daily forecast
+###Gif for the daily forecast
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/gifs?location=YOUR_LOCATION
 Returns a collection of gifs based on the summary of a 5 day forecast for a location
 
-####User creation
+###User creation
 POST to https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?email=youremail&password=password&password_confirmaion=password
 This will return an api key for the new user
 
-####User login
+###User login
 POST to https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?email=youremail&password=password
 This will return an api key for the user if they exist
 
-####Favorite location creation
+###Favorite location creation
 POST to
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?/api/v1/favorites?location=YOUR_NEW_FAVORITE&api_key=YOUR_API_KEY
 This will associate a location with your user account
 
-####List all favorite locations for a user
+###List all favorite locations for a user
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?/api/v1/favorites?api_key=YOUR_API_KEY
 This lists all your favorite locations with their current weather
 
-####Delete a favorite location
+###Delete a favorite location
 DELETE to
 https://enigmatic-everglades-87289.herokuapp.com/api/v1/users?/api/v1/favorites?location=YOUR_NEW_FAVORITE&api_key=YOUR_API_KEY
 This will return the location that was deleted as a response if it existed
