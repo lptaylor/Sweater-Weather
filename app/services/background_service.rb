@@ -21,6 +21,7 @@ class BackgroundService
       c.params['format'] = "json"
       c.params['nojsoncallback'] = 1
       c.params['safe_search'] = 1
+      c.params['content_type'] = 1
     end
   end
 
