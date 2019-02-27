@@ -4,7 +4,7 @@ class BackgroundSerializer
   attributes :location
 
   attribute :url do |object|
-    object.build_url
+    object.show_url
   end
 
 end
