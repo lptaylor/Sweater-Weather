@@ -1,4 +1,5 @@
 class BackgroundFacade
+  attr_reader :location
   def initialize(location)
     @location = location
     @lat = get_lat
@@ -15,8 +16,12 @@ class BackgroundFacade
     service.lon
   end
 
-  def get_url(lat, lon)
+  def make_background
     data = BackgroundService.new(@lat, @lon).get_background
     Background.new(data)
+  end
+
+  def show_url
+    make_background.build_url
   end
 end
