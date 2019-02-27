@@ -6,15 +6,19 @@ class GiphyDaysWeatherPresenter
   end
 
   def fetch_giphy_gifs
-    five_day_with_gif = {}
-    array = []
-    five_day_forecast.each do |forecast|
-        five_day_with_gif[:url] = GiphyService.new(forecast.icon).get_gif
-        five_day_with_gif[:time] = forecast.day
-        five_day_with_gif[:summary] = forecast.icon
-        array << five_day_with_gif
+    five_day_forecast.map do |forecast|
+      GiphyService.new(forecast.summary).get_gif
     end
-    array
+  end
+
+  def make_giphy_days
+    combine_data.map do |weather, gif|
+      GiphyDay.new(weather, gif)
+    end
+  end
+
+  def combine_data
+    (five_day_forecast).zip(fetch_giphy_gifs).to_h
   end
 
   def get_lat
@@ -31,9 +35,5 @@ class GiphyDaysWeatherPresenter
     DaysWeatherFacade.get_daily_weather(@lat, @lon)
   end
 
-  def make_giphy_days
-    fetch_giphy_gifs.map do |data|
-      GiphyDay.new(data)
-    end
-  end
+
 end
