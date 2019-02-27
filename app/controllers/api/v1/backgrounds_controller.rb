@@ -17,7 +17,6 @@ def cache_result(background, serializer)
 end
 
 def cache_empty?
-  binding.pry
   Rails.cache.read(:background).nil?
 end
 

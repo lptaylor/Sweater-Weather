@@ -20,8 +20,8 @@ class Forecast
 
   def current_weather
     if cache_empty_forecast?(:current)
-      CurrentWeatherFacade.get_current_weather(get_lat, get_lon)
       cache_result(:current, CurrentWeatherFacade.get_current_weather(get_lat, get_lon), 5.minutes)
+      CurrentWeatherFacade.get_current_weather(get_lat, get_lon)
     else
       read_cache_forecast(:current)
     end
@@ -29,8 +29,8 @@ class Forecast
 
   def hourly_weather
     if cache_empty_forecast?(:hourly)
-      HourlyWeatherFacade.get_hourly_weather(get_lat, get_lon)
       cache_result(:hourly, HourlyWeatherFacade.get_hourly_weather(get_lat, get_lon), 30.minutes)
+      HourlyWeatherFacade.get_hourly_weather(get_lat, get_lon)
     else
       read_cache_forecast(:hourly)
     end
@@ -38,8 +38,8 @@ class Forecast
 
   def daily_weather
     if cache_empty_forecast?(:daily)
-      DaysWeatherFacade.get_daily_weather(get_lat, get_lon)
       cache_result(:daily, DaysWeatherFacade.get_daily_weather(get_lat, get_lon), 12.hours)
+      DaysWeatherFacade.get_daily_weather(get_lat, get_lon)
     else
       read_cache_forecast(:daily)
     end
