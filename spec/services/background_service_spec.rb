@@ -26,4 +26,20 @@ describe 'background service' do
     expect(response[:photos][:photo][0]).to have_key(:isfriend)
     expect(response[:photos][:photo][0]).to have_key(:isfamily)
   end
+
+  it 'returns a single json object', :vcr do
+    lat = 39.9205411
+    lon = -105.0866504
+    service = BackgroundService.new(lat,lon)
+    json_image = service.get_background
+
+    expect(json_image).to have_key(:id)
+    expect(json_image).to have_key(:owner)
+    expect(json_image).to have_key(:secret)
+    expect(json_image).to have_key(:server)
+    expect(json_image).to have_key(:farm)
+    expect(json_image).to have_key(:ispublic)
+    expect(json_image).to have_key(:isfriend)
+    expect(json_image).to have_key(:isfamily)
+  end
 end
