@@ -19,14 +19,43 @@ class Forecast
   end
 
   def current_weather
-    CurrentWeatherFacade.get_current_weather(get_lat, get_lon)
+    if cache_empty_forecast?(:current)
+      cache_result(:current, CurrentWeatherFacade.get_current_weather(get_lat, get_lon), 5.minutes)
+      CurrentWeatherFacade.get_current_weather(get_lat, get_lon)
+    else
+      read_cache_forecast(:current)
+    end
   end
 
   def hourly_weather
-    HourlyWeatherFacade.get_hourly_weather(get_lat, get_lon)
+    if cache_empty_forecast?(:hourly)
+      cache_result(:hourly, HourlyWeatherFacade.get_hourly_weather(get_lat, get_lon), 30.minutes)
+      HourlyWeatherFacade.get_hourly_weather(get_lat, get_lon)
+    else
+      read_cache_forecast(:hourly)
+    end
   end
 
   def daily_weather
-    DaysWeatherFacade.get_daily_weather(get_lat, get_lon)
+    if cache_empty_forecast?(:daily)
+      cache_result(:daily, DaysWeatherFacade.get_daily_weather(get_lat, get_lon), 12.hours)
+      DaysWeatherFacade.get_daily_weather(get_lat, get_lon)
+    else
+      read_cache_forecast(:daily)
+    end
   end
+end
+
+private
+
+def cache_result(type, weather_data, expires_in)
+  Rails.cache.write(type, weather_data , expires_in: expires_in)
+end
+
+def cache_empty_forecast?(type)
+  Rails.cache.read(type).nil?
+end
+
+def read_cache_forecast(type)
+  Rails.cache.read(type)
 end
