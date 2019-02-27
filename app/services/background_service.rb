@@ -28,5 +28,9 @@ class BackgroundService
     JSON.parse(get_image.body, symbolize_names: true)
   end
 
+  def get_background
+    parse_response[:photos][:photo].first
+  end
+
 
 end
