@@ -1,6 +1,6 @@
 class Api::V1::BackgroundsController < ApplicationController
   def show
-    if cache_empty?
+    if (cache_empty? || params['location'] != check_location)
       background = BackgroundFacade.new(params['location'])
       render json: BackgroundSerializer.new(background)
       cache_result(:background, BackgroundSerializer.new(background))
@@ -22,4 +22,10 @@ end
 
 def read_cache
   Rails.cache.read(:background)
+end
+
+def check_location
+  data_json = read_cache.to_json
+  parsed = JSON.parse(data_json, symbolize_names: true)
+  parsed[:data][:attributes][:location]
 end
