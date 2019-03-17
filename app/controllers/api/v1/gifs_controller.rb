@@ -6,7 +6,7 @@ class Api::V1::GifsController < ApplicationController
       cache_result(:gifs, GifsSerializer.new(gifs))
       cache_location(:gif_location, params['location'])
     else
-      render json: read_cache
+      render json: read_gifs_cache
     end
   end
 end
@@ -21,7 +21,7 @@ def cache_empty?
   Rails.cache.read(:gifs).nil?
 end
 
-def read_cache
+def read_gifs_cache
   Rails.cache.read(:gifs)
 end
 
