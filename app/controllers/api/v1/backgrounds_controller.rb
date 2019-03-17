@@ -5,7 +5,7 @@ class Api::V1::BackgroundsController < ApplicationController
       render json: BackgroundSerializer.new(background)
       cache_result(:background, BackgroundSerializer.new(background))
     else
-      render json: read_cache
+      render json: read_backgrounds_cache
     end
   end
 end
@@ -20,7 +20,7 @@ def cache_empty?
   Rails.cache.read(:background).nil?
 end
 
-def read_cache
+def read_backgrounds_cache
   Rails.cache.read(:background)
 end
 
