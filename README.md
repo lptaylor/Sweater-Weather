@@ -1,4 +1,4 @@
-# Range Society
+# Sweater Weather
 A Turing School API project created with Rails.
 
 [SweaterWeather](https://enigmatic-everglades-87289.herokuapp.com/)
